@@ -21,7 +21,7 @@ export const SITE = {
     { title: "Diploma Study Loan", beneficiaries: 249, graduates: 50, text: "Soft loans for qualified students pursuing diplomas in their study areas." },
     { title: "University Staff Development", beneficiaries: 53, graduates: null, text: "Soft loans for university academic staff, backed by guarantees and a council resolution." },
   ],
-    levels: [["Diploma", 249], ["Bachelor's", 1123], ["Master's", 789], ["PhD", 130]],
+      levels: [["Diploma", 249], ["Bachelor's", 1123], ["Master's", 789], ["PhD", 130], ["Umma University", 1889]],
   steps: [
     ["Application", "Submit your application and required documents on our portal."],
     ["Interviews", "The Secretariat reviews applications and invites applicants to an interview."],

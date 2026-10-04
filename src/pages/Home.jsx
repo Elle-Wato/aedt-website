@@ -318,7 +318,7 @@ export default function Home() {
           <p className="lead">Five loan programmes, each backed by personal guarantees and a commitment to repay so the fund can help the next student.</p>
           <div className="infographic">
             <div><h3>Who we have supported</h3><Donut /></div>
-            <div><h3>Every level of study</h3><Ladder /></div>
+            <div><h3>Beneficiaries by study level and program</h3><Ladder /></div>
           </div>
           <div className="grid pgrid">
             {SITE.programs.map((p, i) => (<Program key={p.title} p={p} i={i} />))}

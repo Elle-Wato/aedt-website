@@ -107,7 +107,7 @@ export function Donut() {
           <li key={p.title}>
             <i style={{ background: COLORS[i] }} />
             {p.title}
-            <em>{Math.round((p.beneficiaries / total) * 100)}%</em>
+
           </li>
         ))}
       </ul>
@@ -117,10 +117,15 @@ export function Donut() {
 
 export function Ladder() {
   const [ref, seen] = useSeen();
+  const max = Math.max(...SITE.levels.map(([, n]) => n));
   return (
     <div className="ladder" ref={ref}>
-      {SITE.levels.map(([name, n], i) => (
-        <div className="rung" key={name} style={{ height: seen ? 110 + i * 50 : 30 }}>
+      {SITE.levels.map(([name, n]) => (
+        <div
+          className={"rung" + (name.startsWith("Umma") ? " umma" : "")}
+          key={name}
+          style={{ height: seen ? 90 + (n / max) * 170 : 30 }}
+        >
           <b><Count value={n} /></b>
           <span>{name}</span>
         </div>

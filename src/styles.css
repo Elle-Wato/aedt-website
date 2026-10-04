@@ -340,3 +340,56 @@ footer.site .cols div{display:flex;flex-direction:column;gap:8px}
 .brandname{font-family:Fraunces,serif;font-weight:700;color:var(--navy);font-size:1.2rem}
 .brandname i{font-style:normal;color:var(--green)}
 @media(max-width:700px){.brand img{height:38px}}
+
+header{box-shadow:0 1px 0 var(--line),0 8px 24px rgba(11,37,69,.05)}
+.nav{max-width:1240px;height:80px;gap:28px}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{height:54px;width:auto;display:block}
+.links{display:flex;align-items:center;gap:4px;margin:0 auto}
+.links a{padding:8px 14px;font-size:.93rem;font-weight:500;white-space:nowrap;color:var(--muted);text-decoration:none;border-radius:999px;transition:color .2s,background .2s}
+.links a:hover{color:var(--navy);background:var(--greenSoft)}
+.actions{display:flex;align-items:center;gap:12px;flex:none}
+.actions .btn{white-space:nowrap;padding:11px 24px;font-size:.93rem}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:#fff;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger span{display:block;width:20px;height:2px;border-radius:2px;background:var(--navy)}
+section,.impact{scroll-margin-top:90px}
+@media(max-width:1180px){
+  .nav{height:70px}
+  .brand img{height:46px}
+  .burger{display:flex}
+  .links{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;margin:0;padding:12px 24px 20px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(11,37,69,.1)}
+  .links.open{display:flex}
+  .links a{padding:13px 14px;font-size:1rem}
+}
+@media(max-width:480px){.actions .btn{padding:9px 16px;font-size:.85rem}}
+
+.ladder{height:300px;gap:10px}
+.rung{padding:12px 4px;min-width:0}
+.rung b{font-size:1.2rem}
+.rung span{font-size:.74rem;line-height:1.2;overflow-wrap:anywhere}
+.rung.umma{background:linear-gradient(to top,#146b45,#7ac143)}
+
+footer.foot{position:relative;margin-top:0;padding:96px 0 28px;color:#B9C7D8;font-size:.95rem;background:radial-gradient(circle at 8% 0%,rgba(30,158,90,.32),transparent 40%),radial-gradient(circle at 95% 100%,rgba(47,128,200,.28),transparent 42%),linear-gradient(rgba(8,26,50,.95),rgba(11,37,69,.93)),url(/images/outreach.jpg) center/cover}
+.fcta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 36px;margin-bottom:56px;border-radius:24px;background:linear-gradient(135deg,#17844a,var(--green) 60%,#7ac143);box-shadow:0 18px 44px rgba(0,0,0,.28)}
+.fcta h3{color:#fff;font-size:1.5rem;margin-bottom:2px}
+.fcta p{color:#E6F6EC}
+.fcta .btn{background:#fff;color:var(--navy)!important}
+.fcta .btn:hover{background:var(--greenSoft)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr .9fr;gap:40px}
+.flogo{display:inline-block;background:#fff;border-radius:14px;padding:8px 14px;margin-bottom:16px}
+.flogo img{height:46px;width:auto;display:block}
+.fbrand p{max-width:20em;line-height:1.6;margin-bottom:18px}
+.fsocial{display:flex;flex-wrap:wrap;gap:8px}
+.fsocial a{padding:7px 14px;border-radius:999px;font-size:.82rem;border:1px solid rgba(255,255,255,.3);transition:background .2s,border-color .2s}
+.fsocial a:hover{background:rgba(255,255,255,.12);border-color:#7ac143}
+.fcol{display:flex;flex-direction:column;gap:9px}
+.fcol h4{color:#fff;font-family:Fraunces,serif;font-size:1.1rem;margin:0 0 6px;position:relative;padding-bottom:10px}
+.fcol h4:after{content:"";position:absolute;left:0;bottom:0;width:30px;height:3px;border-radius:3px;background:var(--green)}
+.fcol a{color:#C9D6E4;width:fit-content;transition:color .2s,transform .2s}
+.fcol a:hover{color:#fff;transform:translateX(3px)}
+.fcol p{line-height:1.5}
+.fbottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:48px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+.totop{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 18px;font-size:.85rem;cursor:pointer;transition:background .2s}
+.totop:hover{background:rgba(255,255,255,.12)}
+@media(max-width:900px){.fgrid{grid-template-columns:1fr 1fr;gap:32px}.fbrand{grid-column:1/-1}}
+@media(max-width:520px){.fgrid{grid-template-columns:1fr}.fcta{padding:26px 22px}}
