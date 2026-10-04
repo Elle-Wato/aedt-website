@@ -39,7 +39,12 @@ export const SITE = {
     { quote: "The study loan has reduced my fees burden. Poor and needy students are benefiting, and many more will because of the revolving fund model. I appreciate AEDT for ensuring fairness in selecting beneficiaries.", who: "Business Management student (UU-SSP)" },
     { quote: "When I first approached you I almost stopped my programme. Alhamdulillah, I completed my loan repayments in April and am now in the final stages of my course.", who: "Nutrition student" },
     { quote: "This fund has made higher education financing very affordable. I am a teacher in Mandera earning a below-average salary, but through AEDT I enrolled for a degree at Umma University.", who: "Beneficiary and teacher, Mandera" },
-    { quote: "Your story here...", who: "Name or description", photo: "/images/t4.jpg" },
+    { quote: "AEDT's support helped transform my ambition into a career of service. My story is proof that investing in one person's education can improve the health and wellbeing of entire communities.",
+  who: "Obstetrician and Gynaecologist",
+  initials: "Dr",},
+  { quote: "My story shows that financial hardship does not have to define a person's future. With determination, hard work, and support from those who believe in your potential, no dream is beyond reach.",
+  who: "Teacher, UU-SSP programme",
+  initials: "UU",},
   ],
 
   partners: [

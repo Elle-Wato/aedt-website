@@ -96,7 +96,7 @@ function Voices() {
                   {photo ? (
                     <img className="av" src={photo} alt="" style={{ objectPosition: t.pos ?? FACES[i] ?? "50% 40%" }} />
                   ) : (
-                    <span className="av init">{initialsOf(t.who)}</span>
+                    <span className="av init">{t.initials ?? initialsOf(t.who)}</span>
                   )}
                   <div><b>{t.who}</b><span>AEDT beneficiary</span></div>
                 </figcaption>
