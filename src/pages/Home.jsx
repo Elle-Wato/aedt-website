@@ -1,9 +1,48 @@
 import { useEffect, useRef, useState } from "react";
 import { SITE } from "../data/site.js";
-import { Count, Icon, ICONS, Wave, Bars, Donut, Ladder, COLORS, useSeen } from "../components/Widgets.jsx";
+import { Count, Icon, ICONS, Wave, Bars, Donut, Ladder, COLORS, useSeen, SocialLinks } from "../components/Widgets.jsx";
 
 const SUPPORT_IMG = ["mentorship", "skills", "volunteer", "workstudy"];
 const FACES = ["50% 70%", "25% 35%", "55% 40%"];
+
+const fmtDate = (d) => new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+function News() {
+  const list = [...SITE.news].sort((a, b) => b.date.localeCompare(a.date));
+  return (
+    <section className="news soft" id="news">
+      <Wave color="#E8F5EE" />
+      <div className="wrap">
+        <h2>News and updates</h2>
+        <p className="lead">Partnerships and milestones from across AEDT.</p>
+        {list.length === 0 && <p className="lead">No updates yet. Follow us on social media for the latest.</p>}
+        {list.map((n) => (
+          <a className="nfeature" key={n.slug} href={"#/news/" + n.slug}>
+            <div
+              className="nimg"
+              style={{ backgroundImage: `url(${n.image})`, backgroundPosition: n.focus || "center" }}
+            />
+            <div className="ntext">
+              <span className="ntag">{n.tag}</span>
+              <time>{fmtDate(n.date)}</time>
+              <h3>{n.title}</h3>
+              <p>{n.summary}</p>
+              <span className="nmore">Read the story →</span>
+            </div>
+          </a>
+        ))}
+        <div className="nfollow">
+          <div>
+            <h3>Follow us for daily updates</h3>
+            <p>For daily updates, follow us on our social media pages.</p>
+          </div>
+                    <SocialLinks />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 
 const CI = {
   pin: "M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z M12 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",
@@ -364,20 +403,7 @@ export default function Home() {
 
             < Partners />
 
-      <section className="news soft" id="news">
-        <Wave color="#E8F5EE" />
-        <div className="wrap">
-          <h2>News and updates</h2>
-          {SITE.news.length === 0 && <p className="lead">No updates yet. Follow us on social media for the latest.</p>}
-          {SITE.news.map((n) => (
-            <article key={n.title}>
-              <time>{new Date(n.date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</time>
-              <h3>{n.title}</h3>
-              <p>{n.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+            <News />
 
       <section id="careers">
         <div className="wrap">

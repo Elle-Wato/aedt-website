@@ -57,6 +57,47 @@ export const SITE = {
 
     // { name: "Partner name", logo: "/partners/file.png" },
   ],
-  news: [], // example: { date: "2026-09-15", title: "...", text: "..." }
+    news: [
+    {
+      slug: "garissa-university-mou",
+      date: "2026-08-27",
+      tag: "MoU signed",
+      title: "AEDT and Garissa University sign deal for interest-free staff study loans",
+      summary: "A new Staff Development Scheme gives Garissa University staff and their dependents zero-interest tuition loans repayable over an extended period.",
+      image: "/images/news/garissa.jpg",
+      gallery: [
+        // { src: "/images/news/garissa-2.jpg", caption: "Add a caption" },
+      ],
+      body: [
+        "AEDT and Garissa University have signed a Memorandum of Understanding under the Staff Development Scheme, giving university staff and their dependents access to flexible education financing.",
+        "The scheme includes zero-interest tuition fee loans that can be repaid over an extended period. It is meant to support continuing learning, institutional capacity building and professional growth among staff.",
+        "The MoU was signed on 27 August 2026 by the Garissa University management team, led by Vice-Chancellor Prof. Ahmed O. Warfa, and AEDT Chief Executive Officer Umar Abdalla. Prof. Warfa thanked AEDT, encouraged eligible staff to take up the opportunity, and asked AEDT to consider a similar arrangement for Garissa University students.",
+        "The agreement is part of AEDT's growing collaboration with universities. In July we signed with Mount Kenya University, and similar arrangements exist with Umma University and the Islamic University of Kenya.",
+      ],
+      source: { name: "Sahifa Media", url: "https://www.sahifa.co.ke/post/aedt-garissa-university-sign-deal-for-interest-free-staff-study-loans" },
+    },
+        {
+      slug: "mount-kenya-university-mou",
+      date: "2026-07-01",
+      tag: "MoU signed",
+      title: "AEDT and Mount Kenya University sign MoU to support MKU staff education",
+      summary: "An interest-free Staff Development Scheme will help eligible Mount Kenya University employees pursue higher education.",
+      image: "/images/news/mku.jpg",
+            image: "/images/news/mku.jpg",
+      focus: "50% 10%",
+      gallery: [
+        // { src: "/images/news/mku-2.jpg", caption: "Add a caption" },
+      ],
+      body: [
+        "AEDT and Mount Kenya University (MKU) have signed a Memorandum of Understanding to set up an interest-free Staff Development Scheme, enabling university employees to pursue higher education.",
+        "The agreement was signed on Wednesday, 1 July 2026, at a ceremony held at MKU. MKU Vice-Chancellor Prof. Deogratius Jaganyi and AEDT Trustee Sheikh Irshad Ibrahim signed on behalf of their institutions. The ceremony was witnessed by Prof. Peter Wanderi, MKU Principal for Corporate Services, Marketing, Communication and Alumni Relations, and AEDT's Chief Executive Officer, alongside senior officials from both organisations.",
+        "Under the agreement, AEDT will run an interest-free study loan programme that makes quality higher education more accessible and affordable for eligible MKU staff. Both institutions said the partnership reflects a shared commitment to investing in people, helping staff strengthen their professional skills and advance their careers.",
+        "Prof. Jaganyi said the scheme builds on MKU's ongoing capacity-building and partnership efforts, and is expected to strengthen staff capacity, support professional growth and improve institutional performance.",
+        "Sheikh Irshad Ibrahim said education and investment in people are the most important drivers of socio-economic development. He added that the collaboration strengthens AEDT's vision of widening access to education for underprivileged students through Shariah-compliant, interest-free study loans.",
+        "AEDT's loan programme runs on a revolving fund model: beneficiaries repay after completing their studies, and the money is used again to support other learners.",
+      ],
+      source: { name: "Jamia TV", url: "https://jamiatv.co.ke/news/1233/aedt-mount-kenya-university-sign-mou-to-support-mku-staff-education" },
+    },
+  ],
   careers: [], // example: { title: "Programme Officer", location: "Nairobi", link: "mailto:..." }
 };

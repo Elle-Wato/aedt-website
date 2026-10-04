@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Wave } from "./components/Widgets.jsx";
 import { SITE } from "./data/site.js";
 import Home from "./pages/Home.jsx";
+import Article from "./pages/Article.jsx";
 import { Privacy, Cookies } from "./pages/Legal.jsx";
 import CookieBanner from "./components/CookieBanner.jsx";
 
@@ -23,7 +24,16 @@ export default function App() {
     return () => window.removeEventListener("hashchange", on);
   }, []);
 
-  const page = route === "#/privacy" ? <Privacy /> : route === "#/cookies" ? <Cookies /> : <Home />;
+    useEffect(() => {
+    if (route.startsWith("#/")) { window.scrollTo(0, 0); return; }
+    const el = document.getElementById(route.slice(1));
+    if (el) el.scrollIntoView();
+  }, [route]);
+
+    const page = route === "#/privacy" ? <Privacy />
+    : route === "#/cookies" ? <Cookies />
+    : route.startsWith("#/news/") ? <Article slug={route.replace("#/news/", "")} />
+    : <Home />;
 
   return (
     <>
