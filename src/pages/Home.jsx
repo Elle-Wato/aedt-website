@@ -291,7 +291,7 @@ export default function Home() {
           <p>Our revolving fund turns every repaid shilling into a new student's tuition. Thousands of learners have studied without the weight of interest.</p>
           <div className="row">
             <a className="btn" {...apply}>Apply for a study loan</a>
-            <a className="btn ghost" href="#loan-process">See how it works</a>
+            <a className="btn ghost" href="#loan-process">Check our loan process</a>
           </div>
         </div>
         <div className="badge" aria-hidden="true"><b>0%</b><span>interest</span></div>
