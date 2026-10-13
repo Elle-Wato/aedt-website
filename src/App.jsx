@@ -9,7 +9,7 @@ import CookieBanner from "./components/CookieBanner.jsx";
 const NAV = [
   ["About", "#about"],
   ["Programmes", "#programs"],
-  ["How it works", "#loan-process"],
+  ["Loan Process", "#loan-process"],
   ["Stories", "#stories"],
   ["Partners", "#partners"],
   ["News", "#news"],
@@ -81,7 +81,7 @@ export default function App() {
               <h4>Explore</h4>
               <a href="#about">About us</a>
               <a href="#programs">Programmes</a>
-              <a href="#loan-process">How it works</a>
+              <a href="#loan-process">Loan Process</a>
               <a href="#stories">Stories</a>
               <a href="#partners">Partners</a>
               <a href="#news">News</a>

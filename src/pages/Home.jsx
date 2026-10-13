@@ -368,7 +368,7 @@ export default function Home() {
             <section id="loan-process" className="process">
         <Wave color="#0B2545" />
         <div className="wrap">
-          <h2>How the study loan works</h2>
+          <h2>Loan Process</h2>
           <p className="lead">Five clear steps from application to repayment. Check the eligibility criteria on the portal before you apply.</p>
           <ol className="timeline">
             {SITE.steps.map(([t, d], i) => (<Step key={t} t={t} d={d} i={i} />))}
