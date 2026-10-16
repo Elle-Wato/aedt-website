@@ -12,6 +12,7 @@ export const SITE = {
     { label: "X", url: "https://x.com/yourpage" },
     { label: "LinkedIn", url: "https://linkedin.com/company/yourpage" },
     { label: "Instagram", url: "https://instagram.com/yourpage" },
+    { label: "TikTok", url: "https://tiktok.com/yourpage" }
   ],
   headline: { beneficiaries: 4233, graduates: 1194, portfolioMillions: 1447, repayment: 99 },
   programs: [
@@ -29,6 +30,157 @@ export const SITE = {
     ["Disbursement", "Fees are paid directly to the university account through RTGS."],
     ["Repayment", "The loan covers tuition fees and is repaid within the study period."],
   ],
+
+      programDetails: {
+    "Undergraduate Study Loan": {
+      heading: "Bachelor's programme: soft loan application requirements",
+      intro: "Applications are made online through our portal. Please have these documents ready before you start.",
+      groups: [
+        {
+          title: "A. Student",
+          items: [
+            "Curriculum Vitae (CV)",
+            "Copy of your Form 4 certificate or other relevant certificates",
+            "School leaving certificate",
+            "University admission letter for your Bachelor's programme, and the fee structure",
+            "Copy of ID",
+            "Copy of KRA PIN",
+            "Coloured passport-size photo",
+            "A handwritten piece of about 300 words about yourself, explaining why you need the soft loan",
+          ],
+        },
+        {
+          title: "B. Parent or guardian",
+          items: ["Copy of ID, copy of KRA PIN and one coloured passport-size photo"],
+        },
+        {
+          title: "Also required from the person paying the loan",
+          items: [
+            "Employment letter (if employed) or business registration documents (if self-employed)",
+            "Bank statement for the last 6 months",
+            "Three recent pay slips",
+            "Loan security: 2 guarantors and/or a title deed or car log book, where applicable",
+          ],
+        },
+      ],
+      notes: [
+        "If you are successful, you will sign a contract with our lawyer and pay Ksh 2,500 in legal fees. This fee is paid only once.",
+        "Repayment starts at the end of the same month in which the first semester's fees are disbursed.",
+        "Fees are transferred directly to the university's account.",
+        "The bank charges for the transfer form part of the soft loan and are charged to the successful applicant's account.",
+      ],
+    },
+
+    "Postgraduate Study Loan": {
+      heading: "Postgraduate programme: soft loan application requirements",
+      intro: "Applications are made online through our portal. Please have one complete set of these documents ready before you start.",
+      groups: [
+        {
+          title: "A. Applicant",
+          items: [
+            "Curriculum Vitae (CV)",
+            "Copy of your last educational certificate (Bachelor's degree or Master's)",
+            "University admission letter for your Master's programme, and the fee structure",
+            "Copy of ID",
+            "Copy of KRA PIN",
+            "Two coloured passport-size photos",
+          ],
+        },
+        {
+          title: "Employment and finances",
+          items: [
+            "Employment letter (if employed) or business registration documents (if self-employed)",
+            "Bank statement for the last 6 months",
+            "Three recent pay slips",
+            "Loan security: a guarantor and/or a title deed or car log book, where applicable",
+          ],
+        },
+      ],
+      notes: [
+        "If you are successful, you will sign a contract with our lawyer and pay Ksh 5,000 in legal fees. This fee is paid only once.",
+        "Repayment starts at the end of the same month in which the first semester's fees are disbursed.",
+        "Fees are transferred directly to the university's account.",
+        "The bank charges for the transfer form part of the soft loan and are charged to the successful applicant's account.",
+      ],
+    },
+
+    "Diploma Study Loan": {
+      heading: "Diploma programme: soft loan application requirements",
+      intro: "Applications are made online through our portal. Please have one complete set of these documents ready before you start.",
+      groups: [
+        {
+          title: "A. Student",
+          items: [
+            "Curriculum Vitae (CV)",
+            "Copy of your Form 4 certificate or other relevant certificates",
+            "School leaving certificate",
+            "College admission letter for your Diploma programme, and the fee structure",
+            "Copy of ID",
+            "Copy of KRA PIN",
+            "Two coloured passport-size photos",
+            "A handwritten piece of about 300 words about yourself, explaining why you need the soft loan",
+          ],
+        },
+        {
+          title: "B. Parent or guardian",
+          items: ["Copy of ID, copy of KRA PIN and two coloured passport-size photos"],
+        },
+        {
+          title: "Also required from the person paying the loan",
+          items: [
+            "Employment letter (if employed) or business registration documents (if self-employed)",
+            "Bank statement for the last 6 months",
+            "Three recent pay slips",
+            "Loan security: 2 guarantors",
+          ],
+        },
+      ],
+      notes: [
+        "If you are successful, you will sign a contract with our lawyer and pay Ksh 1,500 in legal fees. This fee is paid only once.",
+        "Repayment starts at the end of the same month in which the first semester's fees are disbursed.",
+        "Fees are transferred directly to the college's account.",
+        "The bank charges for the transfer form part of the soft loan and are charged to the successful applicant's account.",
+      ],
+    },
+    "Umma University Student Support": {
+      heading: "UUSSP programme: soft loan application requirements",
+      intro: "Applications are made online through our portal. Please have one complete set of these documents ready before you start.",
+      groups: [
+        {
+          title: "A. Student",
+          items: [
+            "Curriculum Vitae (CV)",
+            "Copy of your Form 4 certificate or other relevant certificates",
+            "School leaving certificate",
+            "Umma University admission letter for your Bachelor programme, and the fee structure",
+            "Copy of ID/Birth certificate",
+            "Scholarship recommendation letter from either Umma University, Imam or Local authority",
+            "Father's death certificate (if an orphan)",
+            "Two coloured passport-size photos",
+            "A handwritten piece of about 300 words about yourself, explaining why you need the soft loan",
+          ],
+        },
+        {
+          title: "B. Parent or guardian",
+          items: ["Copy of ID, copy of KRA PIN and two coloured passport-size photos"],
+        },
+        {
+          title: "Also required from the person paying the loan",
+          items: [
+            "Employment letter (if employed) or business registration documents (if self-employed)",
+            "Bank statement for the last 6 months",
+            "Three recent pay slips",
+            "Loan security: 2 guarantors",
+          ],
+        },
+      ],
+      notes: [
+        "If you are successful, you will sign a contract with our lawyer and pay Ksh 2,500 in legal fees. This fee is paid only once.",
+        "Repayment starts at the end of the same month in which the first semester's fees are disbursed.",
+        "Fees are transferred directly to the college's account.",
+      ],
+    },
+  },
   support: [
     ["Mentorship", "Forums that guide students through academic and personal growth and life after graduation."],
     ["Skill development", "Training in employment, life and social skills so beneficiaries thrive at work."],
@@ -52,7 +204,9 @@ export const SITE = {
     { name: "Direct Aid", logo: "/partners/directaid.png" },
     { name: "NAMA Foundation", logo: "/partners/nama.png", },
     { name: "Mount Kenya University", logo: "/partners/mku.png" },
-    { name: "Garissa University", logo: "/partners/garissa.png", dark: true },
+    { name: "Garissa University", logo: "/partners/garissa uni logo.jpg",},
+    { name: "Dr. Kalebi's Lab", logo: "/partners/dkl.png",},
+    { name: "Takaful Insurance of Africa", logo: "/partners/takaful.png",},
 
 
     // { name: "Partner name", logo: "/partners/file.png" },

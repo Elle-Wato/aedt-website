@@ -256,7 +256,7 @@ function Cycle() {
   );
 }
 
-function Program({ p, i }) {
+function Program({ p, i, onInfo }) {
   const [ref, seen] = useSeen();
   const pct = p.graduates ? Math.round((p.graduates / p.beneficiaries) * 100) : 0;
   return (
@@ -274,12 +274,82 @@ function Program({ p, i }) {
             <small>{p.graduates} of {p.beneficiaries} have graduated</small>
           </div>
         ) : null}
+                {SITE.programDetails?.[p.title] && (
+          <button className="pmore" onClick={onInfo}>View requirements →</button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProgramModal({ title, onClose, applyUrl }) {
+  const d = title ? SITE.programDetails?.[title] : null;
+  const [done, setDone] = useState({});
+
+  useEffect(() => {
+    if (!title) return;
+    setDone({});
+    const onKey = (e) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [title]);
+
+  if (!d) return null;
+  const total = d.groups.reduce((s, g) => s + g.items.length, 0);
+  const count = Object.values(done).filter(Boolean).length;
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="mbox" role="dialog" aria-modal="true" aria-label={d.heading} onClick={(e) => e.stopPropagation()}>
+        <button className="mclose" onClick={onClose} aria-label="Close">×</button>
+        <div className="mhead">
+          <span className="ntag">{title}</span>
+          <h3>{d.heading}</h3>
+          <p>{d.intro}</p>
+        </div>
+        <div className="mbody">
+          <div className="mtrack"><i style={{ width: total ? (count / total) * 100 + "%" : 0 }} /></div>
+          <small className="mcount">{count} of {total} ready. Ticks are not saved anywhere.</small>
+          {d.groups.map((g, gi) => (
+            <div key={g.title}>
+              <h4>{g.title}</h4>
+              <ul className="checks">
+                {g.items.map((it, ii) => {
+                  const k = gi + "-" + ii;
+                  return (
+                    <li key={k}>
+                      <label>
+                        <input type="checkbox" checked={!!done[k]} onChange={() => setDone({ ...done, [k]: !done[k] })} />
+                        <span>{it}</span>
+                      </label>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+          <div className="mnotes">
+            <h4>Please note</h4>
+            <ul>{d.notes.map((n) => (<li key={n}>{n}</li>))}</ul>
+          </div>
+        </div>
+        <div className="mfoot">
+          {(d.downloads || []).map((f) => (
+            <a key={f.href} className="btn ghost" href={f.href} download>{f.label}</a>
+          ))}
+          <a className="btn" href={applyUrl} target="_blank" rel="noopener noreferrer">Go to the application portal</a>
+        </div>
       </div>
     </div>
   );
 }
 
 export default function Home() {
+    const [info, setInfo] = useState(null);
   const h = SITE.headline;
   const stat = (node, label) => (<div className="stat"><b>{node}</b><small>{label}</small></div>);
   const apply = { href: SITE.applyUrl, target: "_blank", rel: "noopener noreferrer" };
@@ -304,7 +374,7 @@ export default function Home() {
           <div className="stats">
             {stat(<Count value={h.beneficiaries} />, "Beneficiaries supported")}
             {stat(<Count value={h.graduates} />, "Graduates")}
-            {stat(<Count value={h.portfolioMillions} prefix="KES " suffix="M" />, "Loan portfolio")}
+            {stat(<Count value={h.portfolioMillions} format={(n) => n >= 1000 ? "KES " + (n / 1000).toFixed(2).replace(/\.?0+$/, "") + "B" : "KES " + n + "M"} />, "Loan portfolio")}
             {stat(<Count value={h.repayment} suffix="%" />, "Repayment compliance rate")}
           </div>
           <Bars />
@@ -360,7 +430,7 @@ export default function Home() {
             <div><h3>Beneficiaries by study level and program</h3><Ladder /></div>
           </div>
           <div className="grid pgrid">
-            {SITE.programs.map((p, i) => (<Program key={p.title} p={p} i={i} />))}
+            {SITE.programs.map((p, i) => (<Program key={p.title} p={p} i={i} onInfo={() => setInfo(p.title)} />))}
           </div>
         </div>
       </section>
@@ -417,6 +487,8 @@ export default function Home() {
       </section>
 
             <Contact />
+
+                <ProgramModal title={info} onClose={() => setInfo(null)} applyUrl={SITE.applyUrl} />
     </>
   );
 }

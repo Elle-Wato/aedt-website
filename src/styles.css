@@ -440,3 +440,28 @@ footer.foot{position:relative;margin-top:0;padding:96px 0 28px;color:#B9C7D8;fon
 .sbtn:hover{background:#fff;color:var(--navy)!important;transform:translateY(-2px)}
 .artbody .nfollow{margin:34px 0 8px}
 @media(max-width:600px){.nfollow{padding:24px 22px}}  
+.pmore{margin-top:16px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--green);background:transparent;color:#146b45;font-weight:700;font-size:.88rem;cursor:pointer;transition:background .2s,color .2s}
+.pmore:hover{background:var(--green);color:#fff}
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(8,26,50,.6);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.mbox{position:relative;width:min(680px,100%);max-height:90vh;display:flex;flex-direction:column;background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}}
+.mclose{position:absolute;top:14px;right:16px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+.mclose:hover{background:rgba(255,255,255,.32)}
+.mhead{padding:28px 64px 24px 30px;color:#fff;background:linear-gradient(135deg,#0B2545,#13315C 60%,#146b45)}
+.mhead h3{color:#fff;font-size:1.45rem;margin:12px 0 6px}
+.mhead p{color:#C9D6E4;font-size:.95rem}
+.mhead .ntag{background:rgba(255,255,255,.16);color:#fff}
+.mbody{padding:22px 30px;overflow-y:auto}
+.mbody h4{font-family:Fraunces,serif;color:var(--navy);font-size:1.1rem;margin:22px 0 8px}
+.mbar{height:8px;border-radius:6px;background:var(--line);overflow:hidden}
+.mbar i{display:block;height:100%;background:var(--green);border-radius:6px;transition:width .3s}
+.mcount{display:block;color:var(--muted);margin-top:6px}
+.checks{list-style:none;padding:0;display:grid;gap:6px}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:12px;cursor:pointer;line-height:1.45;transition:background .2s}
+.checks label:hover{background:var(--greenSoft)}
+.checks input{flex:none;width:20px;height:20px;margin-top:2px;accent-color:var(--green)}
+.mnotes{margin-top:24px;padding:18px 20px;border-radius:16px;background:var(--greenSoft)}
+.mnotes h4{margin-top:0}
+.mnotes ul{padding-left:18px;color:#2b4a3c;font-size:.93rem;display:grid;gap:6px}
+.mfoot{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;padding:16px 30px;border-top:1px solid var(--line);background:#fff}
+@media(max-width:520px){.mhead{padding:24px 60px 20px 22px}.mbody{padding:18px 18px}.mfoot{padding:14px 18px}.mfoot .btn{width:100%;text-align:center}}
