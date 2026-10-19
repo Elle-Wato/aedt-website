@@ -9,10 +9,10 @@ export const SITE = {
   asOf: "31 July 2026",
   socials: [
     { label: "Facebook", url: "https://facebook.com/yourpage" },
-    { label: "X", url: "https://x.com/yourpage" },
-    { label: "LinkedIn", url: "https://linkedin.com/company/yourpage" },
-    { label: "Instagram", url: "https://instagram.com/yourpage" },
-    { label: "TikTok", url: "https://tiktok.com/yourpage" }
+    { label: "X", url: "https://x.com/aedt_interact?s=21" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/africa-education-and-development-trust-70b204129?utm_source=share_via&utm_content=profile&utm_medium=member_ios" },
+    { label: "Instagram", url: "https://www.instagram.com/elimishatrust?rpxt=MTF5dGNvajl0YzN2Nw==" },
+    { label: "TikTok", url: "https://www.tiktok.com/@elimishatrust?_r=1&_t=ZS-9AbGHuhLVkg" }
   ],
   headline: { beneficiaries: 4233, graduates: 1194, portfolioMillions: 1447, repayment: 99 },
   programs: [
