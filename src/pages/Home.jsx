@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SITE } from "../data/site.js";
 import { Count, Icon, ICONS, Wave, Bars, Donut, Ladder, COLORS, useSeen, SocialLinks } from "../components/Widgets.jsx";
+import WorldReach from "../components/WorldReach.jsx";
 
 const SUPPORT_IMG = ["mentorship", "skills", "volunteer", "workstudy"];
 const FACES = ["50% 70%", "25% 35%", "55% 40%"];
@@ -470,6 +471,7 @@ export default function Home() {
       </section>
 
               <Voices />
+               <WorldReach />
 
             < Partners />
 

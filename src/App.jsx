@@ -11,6 +11,7 @@ const NAV = [
   ["Programmes", "#programs"],
   ["Loan Process", "#loan-process"],
   ["Stories", "#stories"],
+  ["World reach", "#reach"],
   ["Partners", "#partners"],
   ["News", "#news"],
   ["Contact", "#contact"],
@@ -83,6 +84,7 @@ export default function App() {
               <a href="#programs">Programmes</a>
               <a href="#loan-process">Loan Process</a>
               <a href="#stories">Stories</a>
+              <a href="#reach">World reach</a>
               <a href="#partners">Partners</a>
               <a href="#news">News</a>
               <a href="#careers">Careers</a>
