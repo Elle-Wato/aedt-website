@@ -248,7 +248,7 @@ export const SITE = {
         "Under the agreement, AEDT will run an interest-free study loan programme that makes quality higher education more accessible and affordable for eligible MKU staff. Both institutions said the partnership reflects a shared commitment to investing in people, helping staff strengthen their professional skills and advance their careers.",
         "Prof. Jaganyi said the scheme builds on MKU's ongoing capacity-building and partnership efforts, and is expected to strengthen staff capacity, support professional growth and improve institutional performance.",
         "Sheikh Irshad Ibrahim said education and investment in people are the most important drivers of socio-economic development. He added that the collaboration strengthens AEDT's vision of widening access to education for underprivileged students through Shariah-compliant, interest-free study loans.",
-        "AEDT's loan programme runs on a revolving fund model: beneficiaries repay after completing their studies, and the money is used again to support other learners.",
+        "AEDT's loan programme runs on a revolving fund model: beneficiaries repay the loan within their study period on a monthly basis, and the money is used again to support other learners.",
       ],
       source: { name: "Jamia TV", url: "https://jamiatv.co.ke/news/1233/aedt-mount-kenya-university-sign-mou-to-support-mku-staff-education" },
     },
