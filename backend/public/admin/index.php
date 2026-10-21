@@ -70,8 +70,36 @@ function thumb(string $path): string {
     return (str_starts_with($path, '/uploads/') ? '<img class="thumb" src="' . h($path) . '" alt="">' : '') . '<small>Current: ' . h($path) . '</small>';
 }
 
+function country_ref(): array {
+    // name => [map code, longitude, latitude]
+    return [
+        'Algeria' => [12, 3, 28], 'Botswana' => [72, 24, -22], 'Burundi' => [108, 29.9, -3.4], 'Cameroon' => [120, 12.4, 5.7],
+        'DR Congo' => [180, 23.6, -2.9], 'Djibouti' => [262, 42.6, 11.8], 'Egypt' => [818, 30, 26.5], 'Eritrea' => [232, 39, 15.4],
+        'Ethiopia' => [231, 39, 9], 'Ghana' => [288, -1.2, 7.9], 'Kenya' => [404, 37.9, 0.5], 'Malawi' => [454, 34.3, -13.2],
+        'Morocco' => [504, -6.8, 31.8], 'Mozambique' => [508, 35.5, -17.3], 'Namibia' => [516, 17.1, -22], 'Nigeria' => [566, 8, 9.6],
+        'Rwanda' => [646, 29.9, -1.9], 'Senegal' => [686, -14.5, 14.5], 'Somalia' => [706, 46, 5.5], 'South Africa' => [710, 25, -29],
+        'South Sudan' => [728, 30, 7.5], 'Sudan' => [729, 30, 15.5], 'Tanzania' => [834, 34.8, -6.4], 'Tunisia' => [788, 9.5, 34],
+        'Uganda' => [800, 32.3, 1.4], 'Zambia' => [894, 27.8, -13.1], 'Zimbabwe' => [716, 29.8, -19],
+        'Azerbaijan' => [31, 47.6, 40.3], 'Bangladesh' => [50, 90.3, 23.7], 'China' => [156, 104, 35], 'Cyprus' => [196, 33.2, 35],
+        'India' => [356, 79, 22], 'Indonesia' => [360, 113, -2], 'Iran' => [364, 53, 32.5], 'Iraq' => [368, 44, 33],
+        'Japan' => [392, 138, 36], 'Jordan' => [400, 36.5, 31], 'Kazakhstan' => [398, 67, 48], 'Kuwait' => [414, 47.6, 29.3],
+        'Lebanon' => [422, 35.9, 33.9], 'Malaysia' => [458, 102, 4], 'Oman' => [512, 56, 21], 'Pakistan' => [586, 69.3, 30],
+        'Philippines' => [608, 122, 12.5], 'Qatar' => [634, 51.2, 25.3], 'Saudi Arabia' => [682, 45, 24], 'Singapore' => [702, 103.8, 1.35],
+        'South Korea' => [410, 128, 36.5], 'Sri Lanka' => [144, 80.7, 7.9], 'Thailand' => [764, 101, 15], 'Turkey' => [792, 35, 39],
+        'UAE' => [784, 54, 24], 'Uzbekistan' => [860, 64.5, 41.4], 'Vietnam' => [704, 106, 16],
+        'Austria' => [40, 14.5, 47.6], 'Belgium' => [56, 4.6, 50.6], 'Bulgaria' => [100, 25.2, 42.7], 'Czechia' => [203, 15.5, 49.8],
+        'Denmark' => [208, 9.5, 56], 'Estonia' => [233, 25.5, 58.7], 'Finland' => [246, 26, 64], 'France' => [250, 2.5, 46.6],
+        'Germany' => [276, 10.4, 51], 'Greece' => [300, 22, 39], 'Hungary' => [348, 19.5, 47.2], 'Ireland' => [372, -8, 53.2],
+        'Italy' => [380, 12.5, 42.8], 'Netherlands' => [528, 5.3, 52.2], 'Norway' => [578, 9, 61], 'Poland' => [616, 19.4, 52],
+        'Portugal' => [620, -8, 39.7], 'Romania' => [642, 25, 45.9], 'Russia' => [643, 95, 62], 'Spain' => [724, -3.7, 40],
+        'Sweden' => [752, 16, 62], 'Switzerland' => [756, 8.2, 46.8], 'Ukraine' => [804, 31, 49], 'United Kingdom' => [826, -2, 54],
+        'Argentina' => [32, -64, -34], 'Australia' => [36, 134, -25], 'Brazil' => [76, -52, -10], 'Canada' => [124, -100, 58],
+        'Chile' => [152, -71, -33], 'Colombia' => [170, -74, 4.6], 'Costa Rica' => [188, -84, 10], 'Cuba' => [192, -79, 21.6],
+        'Mexico' => [484, -102, 23.6], 'New Zealand' => [554, 172, -41], 'USA' => [840, -98, 39],
+    ];
+}
 /* ---------- state ---------- */
-$tabs = ['numbers' => 'Numbers', 'news' => 'News', 'stories' => 'Stories', 'partners' => 'Partners', 'careers' => 'Careers', 'links' => 'Social links', 'account' => 'Admins'];
+$tabs = ['numbers' => 'Numbers', 'news' => 'News', 'stories' => 'Stories', 'partners' => 'Partners','reach' => 'World reach', 'careers' => 'Careers', 'links' => 'Social links', 'account' => 'Admins'];
 $tab = $_GET['tab'] ?? 'numbers';
 if (!isset($tabs[$tab])) $tab = 'numbers';
 
@@ -217,6 +245,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $content['partners'] = $new;
                     write_json('content.json', $content);
                     $msg = 'Partners saved.';
+                    break;
+
+                  case 'countries':
+                    $old = $content['countries'] ?? [];
+                    $ref = country_ref();
+                    $new = [];
+                    $names = [];
+                    $unknown = [];
+                    foreach (rows('cname') as $r) {
+                        if (!empty($_POST['del'][$r])) continue;
+                        $o = p('orig', $r);
+                        if ($o !== '' && isset($old[(int)$o])) {
+                            $item = $old[(int)$o];
+                        } else {
+                            $name = p('cname', $r);
+                            if ($name === '') continue;
+                            if (!isset($ref[$name])) { $unknown[] = $name; continue; }
+                            [$code, $lon, $lat] = $ref[$name];
+                            $item = ['name' => $name, 'codes' => [$code], 'pin' => [$lon, $lat]];
+                        }
+                        if (in_array($item['name'], $names, true)) continue;
+                        $names[] = $item['name'];
+                        $item['universities'] = n($_POST['cu'][$r] ?? 0);
+                        $item['beneficiaries'] = n($_POST['cb'][$r] ?? 0);
+                        $new[] = $item;
+                    }
+                    $content['countries'] = $new;
+                    write_json('content.json', $content);
+                    $msg = 'World reach saved. The map and totals on the website are updated.';
+                    if ($unknown) $err = 'Pick countries from the list. Not added: ' . implode(', ', $unknown) . '.';
                     break;
 
                 case 'careers':
@@ -468,6 +526,52 @@ small{color:#5A6B7B;display:block}
       </form>
     </div>
 
+      <?php elseif ($tab === 'reach'):
+      $list = $content['countries'] ?? [];
+      $have = array_column($list, 'name');
+      $options = array_values(array_diff(array_keys(country_ref()), $have));
+      sort($options);
+      $totB = array_sum(array_column($list, 'beneficiaries'));
+      $totU = array_sum(array_column($list, 'universities'));
+  ?>
+    <div class="card">
+      <h2>World reach: beneficiaries by country of study</h2>
+      <small>These figures drive the world map section on the website. The countries are shown from largest to smallest automatically.</small>
+      <p><strong><?= count($list) ?> countries, <?= number_format($totU) ?> universities, <?= number_format($totB) ?> beneficiaries</strong></p>
+      <?php open_form('countries', $t); ?>
+        <?php foreach ($list as $r => $c): ?>
+          <div class="item">
+            <input type="hidden" name="orig[<?= $r ?>]" value="<?= $r ?>">
+            <input type="hidden" name="cname[<?= $r ?>]" value="<?= h($c['name']) ?>">
+            <div class="row">
+              <div><label>Country</label><input value="<?= h($c['name']) ?>" disabled></div>
+              <div><label>Universities</label><input type="number" min="0" name="cu[<?= $r ?>]" value="<?= h($c['universities'] ?? 0) ?>"></div>
+              <div><label>Beneficiaries</label><input type="number" min="0" name="cb[<?= $r ?>]" value="<?= h($c['beneficiaries'] ?? 0) ?>"></div>
+            </div>
+            <label class="del"><input type="checkbox" name="del[<?= $r ?>]" value="1"> Remove this country</label>
+          </div>
+        <?php endforeach; ?>
+        <?php for ($k = 0; $k < 3; $k++): $r = count($list) + $k; ?>
+          <div class="item">
+            <h3>Add a country</h3>
+            <input type="hidden" name="orig[<?= $r ?>]" value="">
+            <div class="row">
+              <div>
+                <label>Country</label>
+                <select name="cname[<?= $r ?>]" style="width:100%;padding:10px 12px;border:1px solid #cdd8e0;border-radius:10px;font-size:1rem">
+                  <option value="">Choose a country…</option>
+                  <?php foreach ($options as $o): ?><option value="<?= h($o) ?>"><?= h($o) ?></option><?php endforeach; ?>
+                </select>
+              </div>
+              <div><label>Universities</label><input type="number" min="0" name="cu[<?= $r ?>]"></div>
+              <div><label>Beneficiaries</label><input type="number" min="0" name="cb[<?= $r ?>]"></div>
+            </div>
+          </div>
+        <?php endfor; ?>
+        <button>Save countries</button>
+      </form>
+    </div>
+    
   <?php elseif ($tab === 'careers'): $list = $content['careers'] ?? []; $list[] = []; $list[] = []; ?>
     <div class="card">
       <h2>Careers</h2>

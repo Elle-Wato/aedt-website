@@ -522,3 +522,7 @@ footer.foot{position:relative;margin-top:0;padding:96px 0 28px;color:#B9C7D8;fon
   .rrow{grid-template-columns:100px 1fr 50px}
 }
 @media(prefers-reduced-motion:reduce){.pinin,.go .pinin{animation:none;opacity:1}.arc{animation:none!important;stroke-dashoffset:0}.pulse{animation:none}}
+
+.legal strong{color:var(--ink)}
+.legal a{color:#146b45;text-decoration:underline}
+.legal h2{color:var(--navy)}
