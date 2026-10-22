@@ -8,7 +8,7 @@ export const SITE = {
   mapQuery: "Heidelberg Plaza, Mombasa Road, Nairobi, Kenya",
   asOf: "31 July 2026",
   socials: [
-    { label: "Facebook", url: "https://facebook.com/yourpage" },
+    { label: "Facebook", url: "https://www.facebook.com/share/18dcSrk9VB/?mibextid=wwXlfr" },
     { label: "X", url: "https://x.com/aedt_interact?s=21" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/africa-education-and-development-trust-70b204129?utm_source=share_via&utm_content=profile&utm_medium=member_ios" },
     { label: "Instagram", url: "https://www.instagram.com/elimishatrust?rpxt=MTF5dGNvajl0YzN2Nw==" },
@@ -30,6 +30,25 @@ export const SITE = {
     ["Disbursement", "Fees are paid directly to the university account through RTGS."],
     ["Repayment", "The loan covers tuition fees and is repaid within the study period."],
   ],
+
+    repayment: {
+    intro: "Repay your loan through any of the options below. Please keep your payment confirmation, because you will need to send it to us.",
+    banks: [
+      { bank: "Absa Bank of Kenya", name: "AEDT Registered Trustees", account: "2036406936", branch: "Queensway Branch", currency: "Kshs" },
+      { bank: "Gulf African Bank", name: "Africa Education & Development Trust", account: "0750001204", branch: "Kenyatta Avenue Branch", currency: "Kshs" },
+      { bank: "Premier Bank", name: "Africa Education & Development Trust", account: "0011219101", branch: "Wabera Branch", currency: "Kshs" },
+    ],
+    mpesa: {
+      paybill: "755135",
+      steps: [
+        "Go to M-PESA and select Pay Bill.",
+        "Enter the pay bill number 755135.",
+        "Enter the account number: your two names and your student number.",
+        "Enter the amount, then your M-PESA PIN.",
+      ],
+    },
+    proof: "It is the beneficiary's responsibility to prove that a repayment was made. Each time you pay, send your bank slip or M-PESA confirmation by email, WhatsApp or text message.",
+  },
 
     countries: [
     { name: "Kenya", codes: [404], pin: [37.9, 0.5], universities: 130, beneficiaries: 4058 },

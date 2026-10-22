@@ -23,8 +23,10 @@ export default function Article({ slug }) {
           <time>{fmt(a.date)}</time>
         </div>
       </div>
+
       <div className="artbody">
         {a.body.map((p, i) => (<p key={i}>{p}</p>))}
+
         {a.gallery && a.gallery.length > 0 && (
           <div className="gallery">
             {a.gallery.map((g) => (
@@ -35,20 +37,19 @@ export default function Article({ slug }) {
             ))}
           </div>
         )}
+
         {a.source && (
           <p className="src">Also reported by <a href={a.source.url} target="_blank" rel="noopener noreferrer">{a.source.name}</a>.</p>
         )}
-                <div className="nfollow">
+
+        <div className="nfollow">
           <div>
             <h3>Follow us for daily updates</h3>
             <p>For daily updates, follow us on our social media pages.</p>
           </div>
-          <div className="nsocial">
-            {SITE.socials.map((s) => (
-              <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
-            ))}
-          </div>
+          <SocialLinks />
         </div>
+
         <a className="btn" href="#news">More news</a>
       </div>
     </article>

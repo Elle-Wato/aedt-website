@@ -83,6 +83,7 @@ export default function App() {
               <a href="#about">About us</a>
               <a href="#programs">Programmes</a>
               <a href="#loan-process">Loan Process</a>
+                            <a href="#repayment">Loan repayment</a>
               <a href="#stories">Stories</a>
               <a href="#reach">World reach</a>
               <a href="#partners">Partners</a>

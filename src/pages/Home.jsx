@@ -219,7 +219,7 @@ const PROG_IMG = ["impact", "hero", "outreach", "loan", "mentorship"];
 const PROG_ICON = [2, 0, 3, 1, 4];
 
 const TAGS = ["Apply on our portal", "Panel interview", "Guarantors sign", "Paid via RTGS", "Repaid during study"];
-
+const STEP_LINKS = { 4: ["See how to repay", "#repayment"] };
 function Step({ t, d, i }) {
   const [ref, seen] = useSeen();
   return (
@@ -229,6 +229,8 @@ function Step({ t, d, i }) {
         <h3>{t}</h3>
         <p>{d}</p>
         <span className="ttag">{TAGS[i]}</span>
+      
+        {STEP_LINKS[i] && <a className="tlink" href={STEP_LINKS[i][1]}>{STEP_LINKS[i][0]} →</a>}
       </div>
       <div className="orb"><Icon i={i} /><span className="n">{i + 1}</span></div>
     </li>
@@ -349,6 +351,69 @@ function ProgramModal({ title, onClose, applyUrl }) {
   );
 }
 
+function CopyBtn({ text, label = "Copy" }) {
+  const [ok, setOk] = useState(false);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setOk(true);
+      setTimeout(() => setOk(false), 1800);
+    } catch { /* clipboard not available */ }
+  };
+  return <button type="button" className="cpy" onClick={copy}>{ok ? "Copied ✓" : label}</button>;
+}
+
+function Repayment() {
+  const R = SITE.repayment;
+  if (!R) return null;
+  return (
+    <section className="repay" id="repayment">
+      <Wave color="#ffffff" />
+      <div className="wrap">
+        <h2>How to repay your loan</h2>
+        <p className="lead">{R.intro}</p>
+
+        <div className="rpgrid">
+          <div className="rpcol">
+            <h3 className="rph"><Glyph d={ICONS[3]} />Standing order or cash deposit</h3>
+            {R.banks.map((b) => (
+              <div className="bank" key={b.bank}>
+                <div className="bankhead"><span className="bico"><Glyph d={ICONS[3]} /></span><b>{b.bank}</b></div>
+                <dl>
+                  <div><dt>Account name</dt><dd>{b.name}</dd></div>
+                  <div><dt>Account number</dt><dd className="acc">{b.account}<CopyBtn text={b.account} /></dd></div>
+                  <div><dt>Branch</dt><dd>{b.branch}</dd></div>
+                  <div><dt>Currency</dt><dd>{b.currency}</dd></div>
+                </dl>
+              </div>
+            ))}
+          </div>
+
+          <div className="mpesa">
+            <span className="mptag">M-PESA</span>
+            <h3>Pay by M-PESA</h3>
+            <div className="paybill">
+              <small>Pay bill number</small>
+              <b>{R.mpesa.paybill}</b>
+              <CopyBtn text={R.mpesa.paybill} />
+            </div>
+            <ol>{R.mpesa.steps.map((s) => (<li key={s}>{s}</li>))}</ol>
+          </div>
+        </div>
+
+        <div className="proof">
+          <span className="proofic"><Glyph d="M9 12l2 2 4-4 M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z" /></span>
+          <div>
+            <h4>Always send your proof of payment</h4>
+            <p>{R.proof}</p>
+            <p><strong>Email:</strong> <a href={"mailto:" + SITE.email}>{SITE.email}</a> &nbsp;·&nbsp; <strong>WhatsApp or text:</strong> {SITE.phones[0]}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
     const [info, setInfo] = useState(null);
   const h = SITE.headline;
@@ -449,11 +514,14 @@ export default function Home() {
               <h3>Your repayment is someone's tuition</h3>
               <p>Every shilling repaid goes back into the fund, so the next student can study without interest.</p>
               <a className="btn" {...apply}>Start your application</a>
+                            <a className="btn" {...apply}>Start your application</a>
+              <a className="tlink" href="#repayment" style={{ marginLeft: 18 }}>How to repay</a>
             </div>
             <Cycle />
           </div>
         </div>
       </section>
+            <Repayment />
 
       <section className="soft" id="support">
         <Wave color="#E8F5EE" />
