@@ -573,3 +573,9 @@ footer.foot{position:relative;margin-top:0;padding:96px 0 28px;color:#B9C7D8;fon
 .rpgrid{align-items:start}
 .mpesa{position:sticky;top:100px}
 @media(max-width:900px){.mpesa{position:static}}
+@media(min-width:1100px){
+  .rpcol{grid-template-columns:1fr 1fr;gap:18px}
+  .rph{grid-column:1/-1}
+  .rpgrid{grid-template-columns:1.5fr .85fr}
+  .bank dl{grid-template-columns:1fr}
+}

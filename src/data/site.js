@@ -37,6 +37,7 @@ export const SITE = {
       { bank: "Absa Bank of Kenya", name: "AEDT Registered Trustees", account: "2036406936", branch: "Queensway Branch", currency: "Kshs" },
       { bank: "Gulf African Bank", name: "Africa Education & Development Trust", account: "0750001204", branch: "Kenyatta Avenue Branch", currency: "Kshs" },
       { bank: "Premier Bank", name: "Africa Education & Development Trust", account: "0011219101", branch: "Wabera Branch", currency: "Kshs" },
+      { bank: "Absa Bank of Kenya", name: "AEDT Registered Trustees", account: "2036406944", branch: "Queensway Branch", currency: "USD" },
     ],
     mpesa: {
       paybill: "755135",

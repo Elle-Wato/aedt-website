@@ -240,7 +240,7 @@ function Step({ t, d, i }) {
 function Cycle() {
   const nodes = [
     [3, "Loan paid to the university", { left: 123, top: 15 }],
-    [0, "Student graduates and repays", { left: 217, top: 177 }],
+    [0, "Student repays and graduates", { left: 217, top: 177 }],
     [4, "Fund helps the next student", { left: 30, top: 177 }],
   ];
   return (
