@@ -239,6 +239,12 @@ export const SITE = {
     ["Volunteering and community service", "Service projects that encourage students to give back across Kenya."],
     ["Work-study", "Hands-on experience in administrative and operational roles at Umma University."],
   ],
+    association: {
+    name: "AEDT Beneficiaries Association",
+    url: "", // paste the association's website address here once it is live
+    members: ["Current beneficiaries", "Graduates", "Guardians", "Guarantors"],
+    blurb: "Our association brings the AEDT community together and runs mentorship, skills development and volunteering programmes. Membership is open to everyone connected to AEDT.",
+  },
   testimonials: [
     { quote: "The study loan has reduced my fees burden. Poor and needy students are benefiting, and many more will because of the revolving fund model. I appreciate AEDT for ensuring fairness in selecting beneficiaries.", who: "Business Management student (UU-SSP)" },
     { quote: "When I first approached you I almost stopped my programme. Alhamdulillah, I completed my loan repayments in April and am now in the final stages of my course.", who: "Nutrition student" },

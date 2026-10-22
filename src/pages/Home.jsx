@@ -417,6 +417,7 @@ function Repayment() {
 export default function Home() {
     const [info, setInfo] = useState(null);
   const h = SITE.headline;
+    const A = SITE.association;
   const stat = (node, label) => (<div className="stat"><b>{node}</b><small>{label}</small></div>);
   const apply = { href: SITE.applyUrl, target: "_blank", rel: "noopener noreferrer" };
   return (
@@ -514,7 +515,7 @@ export default function Home() {
               <h3>Your repayment is someone's tuition</h3>
               <p>Every shilling repaid goes back into the fund, so the next student can study without interest.</p>
               <a className="btn" {...apply}>Start your application</a>
-                            <a className="btn" {...apply}>Start your application</a>
+    
               <a className="tlink" href="#repayment" style={{ marginLeft: 18 }}>How to repay</a>
             </div>
             <Cycle />
@@ -523,18 +524,50 @@ export default function Home() {
       </section>
             <Repayment />
 
-      <section className="soft" id="support">
+           <section className="soft" id="support">
         <Wave color="#E8F5EE" />
         <div className="wrap">
           <h2>Beyond the loan</h2>
-          <p className="lead">We prepare students for their careers and their communities, not just their fees.</p>
+          <p className="lead">We prepare students for their careers and their communities, not just their fees.{A ? ` Mentorship, skills development and volunteering are run through the ${A.name}.` : ""}</p>
           <div className="grid pics">
-            {SITE.support.map(([t, d], i) => (
-              <div className="pic" key={t} style={{ backgroundImage: `url(/images/${SUPPORT_IMG[i]}.jpg)` }}>
-                <div><h3>{t}</h3><p>{d}</p></div>
-              </div>
-            ))}
+            {SITE.support.map(([t, d, via], i) => {
+              const style = { backgroundImage: `url(/images/${SUPPORT_IMG[i]}.jpg)` };
+              const live = !!(A && A.url);
+              const inner = (
+                <div>
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                  {via && A && <span className="via">{live ? "Learn more →" : "Coming soon"}</span>}
+                </div>
+              );
+              return via && live ? (
+                <a className="pic" key={t} href={A.url} target="_blank" rel="noopener noreferrer" style={style}>{inner}</a>
+              ) : (
+                <div className="pic" key={t} style={style}>{inner}</div>
+              );
+            })}
           </div>
+          {A && (
+            <div className="joinband">
+              <div>
+                <h3>Join the {A.name}</h3>
+                <p>{A.blurb}</p>
+                {A.members && (
+                  <div className="members">
+                    {A.members.map((m) => (<span key={m}>{m}</span>))}
+                  </div>
+                )}
+              </div>
+              {A.url ? (
+                <a className="btn" href={A.url} target="_blank" rel="noopener noreferrer">Join us today</a>
+              ) : (
+                <div className="soonbox">
+                  <a className="btn" href={"mailto:" + SITE.email + "?subject=" + encodeURIComponent("Interested in joining the " + A.name)}>Express interest</a>
+                  <small>Our association website is coming soon.</small>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
 
